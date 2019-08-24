@@ -1,0 +1,51 @@
+  <div class="container"> 
+<h2>Welcome to your profile {{ userDetails.firstName }} {{ userDetails.lastName }}</h2>
+<h3>Here are your created events</h3>
+
+    <div class="row">
+      <div class="size">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+          <li *ngFor="let event of eventsList" >
+              <time datetime="2016-02-14">
+                <span class="day">{{ event.eventDate | date : "dd" }}</span>
+                <span class="month">{{ event.eventDate | date : "MMM" }}</span>
+                </time>     
+            <div class="info">
+              <h2 class="title">{{ event.eventName }}</h2>
+                <p class="desc">{{ event.eventDetails }}</p>
+            </div>   
+            <input type="button" class="btn-primary12" value="Delete" (click)="deleteEvent(event)"/> 
+            <input type="button" class="btn-primary12" value="Edit" (click)="editEvent(event)"/>   
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <h3>Here are your booked events</h3>
+    
+    <div class="row">
+      <div class="size">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+          <li *ngFor="let eventB of bookedEventsList" >
+              <time datetime="2016-02-14">
+                <span class="day">{{ eventB.eventDate | date : "dd" }}</span>
+                <span class="month">{{ eventB.eventDate | date : "MMM" }}</span>
+                </time>     
+            <div class="info">
+              <h2 class="title">{{ eventB.eventName }}</h2>
+                <p class="desc">{{ eventB.eventDetails }}</p>
+            </div>   
+            <input type="button" class="btn-primary12" value="Cancel" (click)="cancelEvent(eventB)"/> 
+               
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  
+  
